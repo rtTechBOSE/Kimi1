@@ -319,8 +319,6 @@ class ControlBoardManager(UARTManager):
             time.sleep_ms(10)
             # self.wdt.feed()
 
-
-
     def fixture_in1(self):
         """
         in_out_cylder
@@ -334,7 +332,7 @@ class ControlBoardManager(UARTManager):
             _cylder.off()
             start_time = time.ticks_ms()
             while (True):
-                if self.devices["scan_sensor"].read():
+                if not self.devices["scan_sensor"].read():
                     _cylder.stop()
                     return True
                 if time.ticks_diff(time.ticks_ms(), start_time) > 3000:
@@ -343,43 +341,14 @@ class ControlBoardManager(UARTManager):
         else:
             return False
 
-
-
     def fixture_in(self):
         """
         in_out_cylder
         up_down_cylder
-        """     
-        key_name_list = ["up_sensor", "down_sensor"]
-        if [self.devices[dev].read() for dev in key_name_list] == [True, False]:
-            return self._fix_ctl("in_out_cylder", True, False, True, False, True)
-        else:
-            return False
-        # key_name_list = ["up_sensor", "down_sensor"]
-        # if [self.devices[dev].read() for dev in key_name_list] == [True, False]:
-        #     _cylder = self.devices.get("in_out_cylder", None)
-        #     if _cylder is None:
-        #         raise ValueError("Device 'in_out_cylder' not found")
-        #     _cylder.off()
-        #     stop_sensor = self.devices["flatness_sensor"]
-        #     start_time = time.ticks_ms()
-        #     while time.ticks_diff(time.ticks_ms(), start_time) < 5000:
-        #         if stop_sensor.read():
-        #             _cylder.stop()
-        #             time.sleep_ms(2000)
-        #             break
-        #         time.sleep_ms(10)
-        #     _cylder.off()
-        #     return self._waite_ready(True, False, True, False, 5000)
-        #     # return self._fix_ctl("in_out_cylder", True, False, True, False, True)
-        # else:
-        #     return False
+        """
+        return self._fix_ctl("in_out_cylder", True, False, True, False, True)
 
-        # stop_sensor = self.devices["flatness_sensor"]
-        # start_time = time.ticks_ms()
-        # while time.ticks_diff(time.ticks_ms(), start_time) < 5000:
-        #     if stop_sensor.read():
-        #         pass
+
 
 
     def fixture_out(self):
