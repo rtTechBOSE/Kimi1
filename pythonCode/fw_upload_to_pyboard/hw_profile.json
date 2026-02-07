@@ -1,0 +1,132 @@
+{
+    "device":{
+        "solenoid_down": {
+            "class": "OutputDev",
+            "pin": 2,
+            "asserted": 1
+        },
+        "solenoid_up": {
+            "class": "OutputDev",
+            "pin": 3,
+            "asserted": 0
+        },
+        "solenoid_out": {
+            "class": "OutputDev",
+            "pin": 5,
+            "asserted": 1
+        },
+        "solenoid_in": {
+            "class": "OutputDev",
+            "pin": 4,
+            "asserted": 0
+        },
+        "reset_led": {
+            "class": "LED",
+            "pin": 6,
+            "asserted": 1
+        },
+        "start_led": {
+            "class": "LED",
+            "pin": 7,
+            "asserted": 1
+        },
+        "ctl_out1": {
+            "class": "OutputDev",
+            "pin": 8,
+            "asserted": 1
+        },
+        "ctl_out2": {
+            "class": "OutputDev",
+            "pin": 9,
+            "asserted": 0
+        },
+        "start_button": {
+            "class": "Button",
+            "pin": 14,
+            "pull_up": true,
+            "long_press": 1500
+        },
+        "reset_button": {
+            "class": "Button",
+            "pin": 15,
+            "pull_up": true,
+            "long_press": 1500
+        },
+        "flatness_sensor": {
+            "class": "Sensor",
+            "pin": 21,
+            "pull_up": true
+        },
+        "scan_sensor": {
+            "class": "Sensor",
+            "pin": 20,
+            "pull_up": true
+        },
+        "down_sensor": {
+            "class": "Sensor",
+            "pin": 19,
+            "pull_up": true
+        },
+        "up_sensor": {
+            "class": "Sensor",
+            "pin": 18,
+            "pull_up": true
+        },
+        "in_sensor": {
+            "class": "Sensor",
+            "pin": 17, 
+            "pull_up": true
+        },
+        "out_sensor": {
+            "class": "Sensor",
+            "pin": 16,
+            "pull_up": true
+        },
+        "typec_sensor1": {
+            "class": "Sensor",
+            "pin": 11,
+            "pull_up": true
+        },
+        "typec_sensor2": {
+            "class": "Sensor",
+            "pin": 12,
+            "pull_up": true
+        },
+        "up_down_cylder": {
+            "class": "Cylinder"
+        },
+        "in_out_cylder": {
+            "class": "Cylinder"
+        }
+    },
+    "bindings": [
+        {
+            "source": "up_down_cylder",
+            "target": "solenoid_down"
+        },
+        {
+            "source": "up_down_cylder",
+            "target": "solenoid_up"
+        },
+        {
+            "source": "in_out_cylder",
+            "target": "solenoid_out"
+        },
+        {
+            "source": "in_out_cylder",
+            "target": "solenoid_in"
+        },
+        {
+            "source": "start_button",
+            "target": "start_led",
+            "mode": "IRQ_RISING_FALLING"
+        },
+        {
+            "source": "reset_button",
+            "target": "reset_led",
+            "mode": "IRQ_RISING_FALLING"
+        }
+        
+    ]
+    
+}
