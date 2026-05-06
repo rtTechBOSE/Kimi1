@@ -319,7 +319,7 @@ class ControlBoardManager(UARTManager):
             time.sleep_ms(10)
             # self.wdt.feed()
 
-    def fixture_in1(self):
+    def fixture_in_half(self):
         """
         in_out_cylder
         up_down_cylder
