@@ -574,8 +574,8 @@ class ControlBoardManager(UARTManager):
         
 
 
-kimi = ControlBoardManager("hw_profile.json")
-kimi.run()
+# kimi = ControlBoardManager("hw_profile.json")
+# kimi.run()
 
 # if __name__ == '__main__':
 #     kimi = ControlBoardManager("hw_profile.json")
